@@ -66,3 +66,7 @@ repos:
 #  meta-sbc:
 #    layers:
 #      meta-sbc:
+
+local_conf_header:
+  root-login: |
+    EXTRA_IMAGE_FEATURES += "empty-root-password allow-empty-password"
