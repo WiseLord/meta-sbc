@@ -12,12 +12,14 @@ repos:
   bitbake:
     url: https://git.openembedded.org/bitbake
     branch: "2.18"
+    commit: 0ad6c1c34a5e07a5f8dd66ab248c1e7b37b69fa9
     layers:
       .: disabled
 
   meta-arm:
     url: https://git.yoctoproject.org/meta-arm
     branch: wrynose
+    commit: 9dab8bdd4991973faa6dfc5b3c607f4c09cc1cdb
     layers:
       meta-arm:
       meta-arm-bsp:
@@ -26,6 +28,7 @@ repos:
   meta-openembedded:
     url: https://git.openembedded.org/meta-openembedded
     branch: wrynose
+    commit: 14282a02be9c74a1276a7cda7d6c89e054699a11
     layers:
       meta-filesystems:
       meta-gnome:
@@ -41,10 +44,12 @@ repos:
   meta-sunxi:
     url: https://github.com/linux-sunxi/meta-sunxi.git
     branch: master
+    commit: fa1f75af16970f0d6c2a864158e4698e506a751d
 
   meta-yocto:
     url: https://git.yoctoproject.org/meta-yocto
     branch: wrynose
+    commit: 1b132647002eea43a2c7a7f857f63f42dacbc26c
     layers:
       meta-poky:
       meta-yocto-bsp:
@@ -52,6 +57,7 @@ repos:
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
     branch: wrynose
+    commit: 9da814ca3685ada3fce46b8987f04ed3d57247b7
     layers:
       meta:
       meta-selftest:
