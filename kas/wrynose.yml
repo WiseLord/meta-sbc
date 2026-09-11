@@ -63,9 +63,9 @@ repos:
 #      meta-selftest:
 #      meta-skeleton:
 
-#  meta-sbc:
-#    layers:
-#      meta-sbc:
+  meta-sbc:
+    layers:
+      meta-sbc:
 
 local_conf_header:
   root-login: |
