@@ -22,7 +22,7 @@ repos:
     commit: 9dab8bdd4991973faa6dfc5b3c607f4c09cc1cdb
     layers:
       meta-arm:
-      meta-arm-bsp:
+      #meta-arm-bsp:
       meta-arm-toolchain:
 
   meta-openembedded:
@@ -30,16 +30,16 @@ repos:
     branch: wrynose
     commit: 14282a02be9c74a1276a7cda7d6c89e054699a11
     layers:
-      meta-filesystems:
-      meta-gnome:
-      meta-initramfs:
-      meta-multimedia:
-      meta-networking:
+      #meta-filesystems:
+      #meta-gnome:
+      #meta-initramfs:
+      #meta-multimedia:
+      #meta-networking:
       meta-oe:
-      meta-perl:
+      #meta-perl:
       meta-python:
-      meta-webserver:
-      meta-xfce:
+      #meta-webserver:
+      #meta-xfce:
 
   meta-sunxi:
     url: https://github.com/linux-sunxi/meta-sunxi.git
@@ -52,7 +52,7 @@ repos:
     commit: 1b132647002eea43a2c7a7f857f63f42dacbc26c
     layers:
       meta-poky:
-      meta-yocto-bsp:
+      #meta-yocto-bsp:
 
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
@@ -60,8 +60,8 @@ repos:
     commit: 9da814ca3685ada3fce46b8987f04ed3d57247b7
     layers:
       meta:
-      meta-selftest:
-      meta-skeleton:
+#      meta-selftest:
+#      meta-skeleton:
 
 #  meta-sbc:
 #    layers:
