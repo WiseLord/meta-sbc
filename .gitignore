@@ -1,0 +1,9 @@
+build/
+.kas_shell_history
+
+bitbake/
+meta-arm/
+meta-openembedded/
+meta-sunxi/
+meta-yocto/
+openembedded-core/
