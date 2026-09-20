@@ -5,7 +5,7 @@ machine: bananapi-m2-zero
 distro: poky
 
 target:
-  - core-image-minimal
+  - sbc-image-minimal
 
 repos:
 
