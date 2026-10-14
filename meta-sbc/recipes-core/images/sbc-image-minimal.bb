@@ -22,6 +22,10 @@ IMAGE_INSTALL:append = " wireless-regdb-static"
 #IMAGE_INSTALL:append = " kernel-modules"
 #IMAGE_INSTALL:append = " linux-firmware"
 
+IMAGE_INSTALL:append = " dt-overlays"
+
+IMAGE_BOOT_FILES:append = " devicetree/*.dtbo"
+
 ROOTFS_POSTPROCESS_COMMAND:append = " create_bpi_firmware_symlinks"
 
 create_bpi_firmware_symlinks() {
