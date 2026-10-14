@@ -24,7 +24,18 @@ IMAGE_INSTALL:append = " wireless-regdb-static"
 
 IMAGE_INSTALL:append = " dt-overlays"
 
-IMAGE_BOOT_FILES:append = " devicetree/*.dtbo"
+IMAGE_BOOT_FILES:append = " devicetree/*.dtbo;devicetree/"
+
+IMAGE_PREPROCESS_COMMAND:append = " create_uenv_txt"
+
+create_uenv_txt() {
+    install -d ${DEPLOY_DIR_IMAGE}
+    cat << EOF > ${DEPLOY_DIR_IMAGE}/uEnv.txt
+overlays=sun8i-h3-eth0
+EOF
+}
+
+IMAGE_BOOT_FILES:append = " uEnv.txt"
 
 ROOTFS_POSTPROCESS_COMMAND:append = " create_bpi_firmware_symlinks"
 
