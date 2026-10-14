@@ -22,6 +22,8 @@ IMAGE_INSTALL:append = " wireless-regdb-static"
 #IMAGE_INSTALL:append = " kernel-modules"
 #IMAGE_INSTALL:append = " linux-firmware"
 
+IMAGE_INSTALL:append = " i2c-tools"
+
 IMAGE_INSTALL:append = " dt-overlays"
 
 IMAGE_BOOT_FILES:append = " devicetree/*.dtbo;devicetree/"
