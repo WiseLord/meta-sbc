@@ -9,21 +9,19 @@ setenv bootargs console=${console} console=tty1 root=/dev/mmcblk0p2 rootwait pan
 load ${devtype} ${devnum}:${distro_bootpart} ${fdt_addr_r} ${fdtfile}
 load ${devtype} ${devnum}:${distro_bootpart} ${kernel_addr_r} uImage
 
-if test -n "${overlays}"; then
-    echo "Applying overlays: ${overlays}"
+echo "Applying ${overlay_prefix} overlays: ${overlays}"
 
-    fdt addr ${fdt_addr_r}
-    fdt resize 65536
+fdt addr ${fdt_addr_r}
+fdt resize 65536
 
-    for overlay in ${overlays}; do
-        if test -e ${devtype} ${devnum}:${distro_bootpart} /devicetree/${overlay}.dtbo; then
-            echo "Loading overlay: ${overlay}"
-            load ${devtype} ${devnum}:${distro_bootpart} ${fdtoverlay_addr_r} /devicetree/${overlay}.dtbo
-            fdt apply ${fdtoverlay_addr_r}
-        else
-            echo "Warning: overlay /devicetree/${overlay}.dtbo not found!"
-        fi
-    done
-fi
+for overlay in ${overlays}; do
+    if test -e ${devtype} ${devnum}:${distro_bootpart} /devicetree/${overlay_prefix}-${overlay}.dtbo; then
+        echo "Loading overlay: ${overlay_prefix}-${overlay}"
+        load ${devtype} ${devnum}:${distro_bootpart} ${fdtoverlay_addr_r} /devicetree/${overlay_prefix}-${overlay}.dtbo
+        fdt apply ${fdtoverlay_addr_r}
+    else
+        echo "Warning: overlay /devicetree/${overlay_prefix}-${overlay}.dtbo not found!"
+    fi
+done
 
 bootm ${kernel_addr_r} - ${fdt_addr_r}

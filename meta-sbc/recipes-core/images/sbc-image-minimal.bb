@@ -31,7 +31,8 @@ IMAGE_PREPROCESS_COMMAND:append = " create_uenv_txt"
 create_uenv_txt() {
     install -d ${DEPLOY_DIR_IMAGE}
     cat << EOF > ${DEPLOY_DIR_IMAGE}/uEnv.txt
-overlays=sun8i-h3-eth0
+overlay_prefix=sun8i-h3
+overlays=eth0 gt911 r61851
 EOF
 }
 

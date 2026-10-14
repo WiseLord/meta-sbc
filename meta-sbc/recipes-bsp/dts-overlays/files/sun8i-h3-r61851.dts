@@ -1,0 +1,65 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "allwinner,sun8i-h3";
+
+    fragment@0 {
+        target = <&pio>;
+        __overlay__ {
+            r61581_pins: r61581_pins {
+                pins = "PC4", "PA2";        /* D/C, RESET */
+                function = "gpio_out";
+            };
+
+            backlight_pin: backlight_pin {
+                pins = "PA3";               /* backlight enable */
+                function = "gpio_out";
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&spi0>;
+        __overlay__ {
+            status = "okay";
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            pinctrl-names = "default";
+            pinctrl-0 = <&spi0_pins>;
+
+            cs-gpios = <&pio 2 3 1>;        /* PC3 (PIN24), ACTIVE_LOW */
+
+            r61581: r61581@0 {
+                compatible = "custom,r61581";
+                reg = <0>;
+
+                pinctrl-names = "default";
+                pinctrl-0 = <&r61581_pins>;
+
+                spi-max-frequency = <32000000>;
+                rotation = <0>;
+
+                dc-gpios    = <&pio 2 4 0>; /* PC4 (PIN18), ACTIVE_HIGH */
+                reset-gpios = <&pio 0 2 0>; /* PA2 (PIN22), ACTIVE_HIGH */
+
+                backlight = <&backlight>;
+            };
+        };
+    };
+
+    fragment@2 {
+        target-path = "/";
+        __overlay__ {
+            backlight: backlight {
+                compatible = "gpio-backlight";
+                pinctrl-names = "default";
+                pinctrl-0 = <&backlight_pin>;
+
+                gpios = <&pio 0 3 0>; /* PA3 (CON2 pin15), ACTIVE_HIGH */
+                default-on;
+            };
+        };
+    };
+};
