@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="backlight", ATTR{bl_power}="0", ATTR{brightness}="1"

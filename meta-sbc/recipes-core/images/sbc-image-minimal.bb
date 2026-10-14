@@ -19,12 +19,15 @@ IMAGE_INSTALL:append = " kernel-module-sha256"
 IMAGE_INSTALL:append = " linux-firmware-bcm43430"
 IMAGE_INSTALL:append = " wireless-regdb-static"
 
+IMAGE_INSTALL:append = " kernel-module-r61581"
+
 #IMAGE_INSTALL:append = " kernel-modules"
 #IMAGE_INSTALL:append = " linux-firmware"
 
 IMAGE_INSTALL:append = " i2c-tools"
 
 IMAGE_INSTALL:append = " dt-overlays"
+IMAGE_INSTALL:append = " sbc-init"
 
 IMAGE_BOOT_FILES:append = " devicetree/*.dtbo;devicetree/"
 
