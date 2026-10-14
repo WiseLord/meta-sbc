@@ -2,6 +2,8 @@ SUMMARY = "Builds minimal image."
 
 require recipes-core/images/core-image-minimal.bb
 
+WKS_FILES = "sbc-sdcard-image.wks.in"
+
 IMAGE_INSTALL:append = " kernel-module-bluetooth"
 IMAGE_INSTALL:append = " kernel-module-brcmfmac"
 IMAGE_INSTALL:append = " kernel-module-brcmfmac-wcc"

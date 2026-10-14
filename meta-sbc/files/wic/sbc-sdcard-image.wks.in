@@ -1,0 +1,9 @@
+# | | u-boot-sunxi-with-spl.bin |     boot     |    rootfs    |
+# ^ ^                           ^              ^              ^
+# | |                           |              |              |
+# 0 |                         2MiB  ${SUNXI_BOOT_SPACE}MiB  ${SUNXI_BOOT_SPACE}MiB + rootfs + IMAGE_EXTRA_SPACE
+#   8KiB
+
+part u-boot --source rawcopy --sourceparams="file=${SPL_BINARY}" --ondisk mmcblk0 --no-table --align 8
+part /boot  --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 2048 --fixed-size ${SUNXI_BOOT_SPACE}
+part /      --source rootfs --ondisk mmcblk0 --exclude-path boot/ --fstype=ext4 --align 2048
