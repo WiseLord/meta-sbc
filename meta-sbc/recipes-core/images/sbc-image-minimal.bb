@@ -25,6 +25,7 @@ IMAGE_INSTALL:append = " kernel-module-r61581"
 #IMAGE_INSTALL:append = " linux-firmware"
 
 IMAGE_INSTALL:append = " i2c-tools"
+IMAGE_INSTALL:append = " wpa-supplicant"
 
 IMAGE_INSTALL:append = " dt-overlays"
 IMAGE_INSTALL:append = " sbc-init"
