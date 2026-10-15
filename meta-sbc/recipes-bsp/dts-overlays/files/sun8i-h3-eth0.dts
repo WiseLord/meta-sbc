@@ -11,6 +11,14 @@
             phy-mode = "mii";
             allwinner,leds-active-low;
             status = "okay";
+            local-mac-address = [00 00 00 00 00 00];
+        };
+    };
+
+    fragment@1 {
+        target-path = "/aliases";
+        __overlay__ {
+            ethernet0 = "/soc/ethernet@1c30000";
         };
     };
 };
