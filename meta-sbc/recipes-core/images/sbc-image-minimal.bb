@@ -30,6 +30,8 @@ IMAGE_INSTALL:append = " wpa-supplicant"
 IMAGE_INSTALL:append = " dt-overlays"
 IMAGE_INSTALL:append = " sbc-init"
 
+IMAGE_INSTALL:append = " lvgl-demo-fb"
+
 IMAGE_BOOT_FILES:append = " devicetree/*.dtbo;devicetree/"
 
 IMAGE_PREPROCESS_COMMAND:append = " create_uenv_txt"
