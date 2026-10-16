@@ -70,3 +70,6 @@ repos:
 local_conf_header:
   root-login: |
     EXTRA_IMAGE_FEATURES += "empty-root-password allow-empty-password"
+  initramfs-bundle: |
+    INITRAMFS_IMAGE = "sbc-initramfs-minimal"
+    INITRAMFS_IMAGE_NAME = "${INITRAMFS_IMAGE}-${MACHINE}.rootfs"

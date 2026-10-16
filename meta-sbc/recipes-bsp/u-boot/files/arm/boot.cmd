@@ -4,10 +4,19 @@ if test -e ${devtype} ${devnum}:${distro_bootpart} uEnv.txt; then
     env import -t ${loadaddr} ${filesize}
 fi
 
-setenv bootargs console=${console} console=tty1 root=/dev/mmcblk0p2 rootwait panic=10 ${extra}
+setenv bootargs console=${console} console=tty1 root=/dev/ram0 rw rootwait panic=10 ${extra}
 
 load ${devtype} ${devnum}:${distro_bootpart} ${fdt_addr_r} ${fdtfile}
 load ${devtype} ${devnum}:${distro_bootpart} ${kernel_addr_r} uImage
+
+if test -e ${devtype} ${devnum}:${distro_bootpart} ${ramdisk}; then
+    echo "Found ramdisk, loading initramfs..."
+    load ${devtype} ${devnum}:${distro_bootpart} ${ramdisk_addr_r} ${ramdisk}
+    setenv ramdisk_param ${ramdisk_addr_r}
+else
+    echo "Warning: ramdisk not found! Booting without initramfs."
+    setenv ramdisk_param "-"
+fi
 
 echo "Applying ${overlay_prefix} overlays: ${overlays}"
 
@@ -24,4 +33,4 @@ for overlay in ${overlays}; do
     fi
 done
 
-bootm ${kernel_addr_r} - ${fdt_addr_r}
+bootm ${kernel_addr_r} ${ramdisk_param} ${fdt_addr_r}
