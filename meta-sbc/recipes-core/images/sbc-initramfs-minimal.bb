@@ -1,9 +1,14 @@
 SUMMARY = "Builds minimal initramfs"
 
-require recipes-core/images/core-image-minimal.bb
+inherit core-image
 
-#IMAGE_FSTYPES = "${INITRAMFS_FSTYPES}"
+IMAGE_INSTALL = "packagegroup-core-boot"
+IMAGE_LINGUAS = " "
+
 IMAGE_FSTYPES = "cpio.gz.u-boot"
+
+PACKAGE_EXCLUDE += "udev-hwdb"
+PACKAGE_EXCLUDE += "shared-mime-info"
 
 IMAGE_INSTALL:append = " kernel-module-bluetooth"
 IMAGE_INSTALL:append = " kernel-module-brcmfmac"

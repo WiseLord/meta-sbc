@@ -1,6 +1,11 @@
 SUMMARY = "Builds minimal image"
 
-require recipes-core/images/core-image-minimal.bb
+inherit core-image
+
+IMAGE_INSTALL = "packagegroup-core-boot"
+IMAGE_LINGUAS = " "
+
+IMAGE_FSTYPES = "wic.gz"
 
 SUNXI_BOOT_SPACE = "120"
 WKS_FILES = "sbc-sdcard-image.wks.in"
