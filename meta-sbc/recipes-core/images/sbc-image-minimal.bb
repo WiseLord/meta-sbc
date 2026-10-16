@@ -2,6 +2,7 @@ SUMMARY = "Builds minimal image"
 
 require recipes-core/images/core-image-minimal.bb
 
+SUNXI_BOOT_SPACE = "120"
 WKS_FILES = "sbc-sdcard-image.wks.in"
 
 IMAGE_BOOT_FILES:append = " devicetree/*.dtbo;devicetree/"
