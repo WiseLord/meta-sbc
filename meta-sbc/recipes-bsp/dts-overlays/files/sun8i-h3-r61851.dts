@@ -39,7 +39,6 @@
                 pinctrl-0 = <&r61581_pins>;
 
                 spi-max-frequency = <32000000>;
-                rotation = <0>;
 
                 dc-gpios    = <&pio 2 4 0>; /* PC4 (PIN18), ACTIVE_HIGH */
                 reset-gpios = <&pio 0 2 0>; /* PA2 (PIN22), ACTIVE_HIGH */

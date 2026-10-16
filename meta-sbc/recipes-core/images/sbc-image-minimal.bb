@@ -16,6 +16,7 @@ create_uenv_txt() {
 overlay_prefix=sun8i-h3
 overlays=eth0 gt911 r61851
 ramdisk=uramfs
+extra=fbcon=rotate:2
 EOF
 }
 

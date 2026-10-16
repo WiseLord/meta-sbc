@@ -194,7 +194,6 @@ static int r61581_probe(struct spi_device *spi)
 	struct drm_device *drm;
 	struct mipi_dbi *dbi;
 	struct gpio_desc *dc;
-	u32 rotation = 0;
 	int ret;
 
 	rdev = devm_drm_dev_alloc(dev, &r61581_driver,
@@ -220,8 +219,6 @@ static int r61581_probe(struct spi_device *spi)
 		return dev_err_probe(dev, PTR_ERR(dc),
 				     "Failed to get GPIO 'dc'\n");
 
-	device_property_read_u32(dev, "rotation", &rotation);
-
 	ret = mipi_dbi_spi_init(spi, dbi, dc);
 	if (ret)
 		return ret;
@@ -229,7 +226,7 @@ static int r61581_probe(struct spi_device *spi)
 	ret = mipi_dbi_dev_init_with_formats(dbidev, &r61581_pipe_funcs,
 					      r61581_formats,
 					      ARRAY_SIZE(r61581_formats),
-					      &r61581_mode, rotation, 0);
+					      &r61581_mode, 0, 0);
 	if (ret)
 		return ret;
 
